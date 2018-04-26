@@ -9,12 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -22,6 +22,7 @@ import com.montanha.gerenciador.dtos.ViagemDto;
 import com.montanha.gerenciador.entities.Viagem;
 import com.montanha.gerenciador.responses.Response;
 import com.montanha.gerenciador.services.ViagemServices;
+import com.montanha.gerenciador.services.exceptions.ViagemNaoExisteException;
 
 @RestController
 @RequestMapping("/api/viagens")
@@ -61,6 +62,12 @@ public class GerenciadorViagemController {
 		Response<Viagem> response = new Response<Viagem>();
 		response.setData(viagem);
 		return ResponseEntity.status(HttpStatus.OK).body(response);
+	}
+	
+	@DeleteMapping(path = "/{id}")
+	public ResponseEntity<?> deletar(@PathVariable("id") Long id) throws ViagemNaoExisteException {
+		viagemService.deletarViagem(id);
+		return ResponseEntity.status(HttpStatus.OK).build();
 	}
 
 }

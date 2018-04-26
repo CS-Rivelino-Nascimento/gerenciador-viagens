@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.montanha.gerenciador.dtos.ViagemDto;
 import com.montanha.gerenciador.entities.Viagem;
 import com.montanha.gerenciador.repositories.ViagemRepository;
-import com.montanha.gerenciador.services.exceptions.ViagemServiceException;
+import com.montanha.gerenciador.services.exceptions.ViagemNaoExisteException;
 
 @Service
 public class ViagemServices {
@@ -35,8 +35,20 @@ public class ViagemServices {
 		Viagem viagem = viagemRepository.findOne(id);
 
 		if (viagem == null) {
-			throw new ViagemServiceException("Não existe esta viagem cadastrada");
+			throw new ViagemNaoExisteException("Não existe esta viagem cadastrada");
 		}
 		return viagem;
+	}
+	
+	public void deletarViagem (Long id) {
+	
+		try {
+			buscar(id);
+		} catch (ViagemNaoExisteException e) {
+			throw new ViagemNaoExisteException("Não existe esta viagem cadastrada");
+		}
+		
+		viagemRepository.delete(id);
+		
 	}
 }
