@@ -18,4 +18,22 @@ public class Apoio {
 				then().
 				assertThat().statusCode(201);
 	}
+	
+	public void DeletaViagem(){
+		given().delete("1");
+	}
+	
+	public String BuscaViagemCadastrada(){
+		Response response = given().
+				when().
+				contentType("application/json").
+				get().
+				then().
+				assertThat().statusCode(200).
+				and().
+				extract().response();
+		String id = response.path("id").toString();
+		return id;
+		
+	}
 }
