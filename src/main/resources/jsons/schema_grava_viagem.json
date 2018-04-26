@@ -1,0 +1,63 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "data": {
+      "$id": "/properties/data",
+      "type": "object",
+      "properties": {
+        "id": {
+          "$id": "/properties/data/properties/id",
+          "type": "integer",
+          "title": "The Id Schema ",
+          "default": 0,
+          "examples": [
+            1
+          ]
+        },
+        "localDeDestino": {
+          "$id": "/properties/data/properties/localDeDestino",
+          "type": "string",
+          "title": "The Localdedestino Schema ",
+          "default": "",
+          "examples": [
+            "Medina"
+          ]
+        },
+        "dataPartida": {
+          "$id": "/properties/data/properties/dataPartida",
+          "type": "string",
+          "title": "The Datapartida Schema ",
+          "default": "",
+          "examples": [
+            "2018-01-10"
+          ]
+        },
+        "dataRetorno": {
+          "$id": "/properties/data/properties/dataRetorno",
+          "type": "string",
+          "title": "The Dataretorno Schema ",
+          "default": "",
+          "examples": [
+            "2018-02-10"
+          ]
+        },
+        "acompanhante": {
+          "$id": "/properties/data/properties/acompanhante",
+          "type": "string",
+          "title": "The Acompanhante Schema ",
+          "default": "",
+          "examples": [
+            "Eliete"
+          ]
+        }
+      }
+    },
+    "errors": {
+      "$id": "/properties/errors",
+      "type": "array"
+    }
+  }
+}

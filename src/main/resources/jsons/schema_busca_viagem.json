@@ -1,0 +1,57 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "array",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "items": {
+    "$id": "http://example.com/example.json/items",
+    "type": "object",
+    "properties": {
+      "id": {
+        "$id": "http://example.com/example.json/items/properties/id",
+        "type": "integer",
+        "title": "The Id Schema ",
+        "default": 0,
+        "examples": [
+          1
+        ]
+      },
+      "localDeDestino": {
+        "$id": "http://example.com/example.json/items/properties/localDeDestino",
+        "type": "string",
+        "title": "The Localdedestino Schema ",
+        "default": "",
+        "examples": [
+          "Medina"
+        ]
+      },
+      "dataPartida": {
+        "$id": "http://example.com/example.json/items/properties/dataPartida",
+        "type": "string",
+        "title": "The Datapartida Schema ",
+        "default": "",
+        "examples": [
+          "2018-01-10"
+        ]
+      },
+      "dataRetorno": {
+        "$id": "http://example.com/example.json/items/properties/dataRetorno",
+        "type": "string",
+        "title": "The Dataretorno Schema ",
+        "default": "",
+        "examples": [
+          "2018-02-10"
+        ]
+      },
+      "acompanhante": {
+        "$id": "http://example.com/example.json/items/properties/acompanhante",
+        "type": "string",
+        "title": "The Acompanhante Schema ",
+        "default": "",
+        "examples": [
+          "Eliete"
+        ]
+      }
+    }
+  }
+}
